@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # Load YOLO
-net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
+net = cv2.dnn.readNet("../yolov3.weights", "yolov3.cfg")
 with open("coco.names", "r") as f:
     classes = [line.strip() for line in f.readlines()]
 
@@ -13,7 +13,7 @@ output_layers_indices = net.getUnconnectedOutLayers()
 output_layers = [layer_names[idx - 1] for idx in output_layers_indices]
 
 # Load image
-img = cv2.imread("cars.jpeg")
+img = cv2.imread("./images/bus.jpeg")
 img = cv2.resize(img, None, fx=0.4, fy=0.4)  # Resize image for faster processing
 height, width, channels = img.shape
 
